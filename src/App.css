@@ -40,3 +40,7 @@
 .read-the-docs {
   color: #888;
 }
+.spacer {
+  /* Adjust the height or width based on your desired spacing */
+  height: 20px; /* or width: 20px; for horizontal spacing */
+}
