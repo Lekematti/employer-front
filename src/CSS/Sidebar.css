@@ -1,0 +1,13 @@
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+.spacer {
+    height: 20px;
+}
+.sidebar button {
+    width: 150px;  /* adjust as needed */
+    height: 60px;  /* adjust as needed */
+    margin: 5px 10px 5px 10px;  /* adjust as needed */
+}
