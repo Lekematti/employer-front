@@ -1,14 +1,11 @@
 import './App.css'
-import LoginRegister from "./components/LoginRegister.jsx";
-
+import Navigation from './components/Navigation.jsx';
 
 function App() {
     return (
-        <>
-            <div>
-                <LoginRegister/>
-            </div>
-        </>
+        <div>
+            <Navigation/>
+        </div>
     );
 }
 
