@@ -9,6 +9,10 @@ function Login() {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
+    const toggleView = () => {
+        navigate('/register');
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -25,9 +29,15 @@ function Login() {
     return (
         <form onSubmit={handleSubmit}>
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required/>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required/>
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password"
+                   required/>
             {error && <p>{error}</p>}
             <button type="submit">Login</button>
+            <div>
+                <button onClick={toggleView}>
+                    Go to Register
+                </button>
+            </div>
         </form>
     );
 }
