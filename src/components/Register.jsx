@@ -9,28 +9,39 @@ function Register() {
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
     const [businessId, setBusinessId] = useState("");
+    const [picture, setPicture] = useState(null);
 
     const navigate = useNavigate();
     const toggleView = () => {
         navigate('/login');
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const res = await axios.post('http://localhost:3000/auth/employee/register', {
-                name,
-                email,
-                password,
-                address,
-                phone,
-                businessId
-            });
-            console.log(res.data);
-        } catch (err) {
-            console.error(err);
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('address', address);
+    formData.append('phone', phone);
+    formData.append('businessId', businessId);
+    formData.append('picture', picture);
+
+    try {
+        const res = await axios.post('http://localhost:3000/auth/employee/register', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        console.log(res.data);
+    } catch (err) {
+        console.error(err);
         }
     };
+
+const handlePictureChange = (e) => {
+    setPicture(e.target.files[0]);
+};
 
     return (
         <form onSubmit={handleSubmit}>
@@ -46,6 +57,8 @@ function Register() {
                    required/>
             <input type="text" value={businessId} onChange={e => setBusinessId(e.target.value)}
                    placeholder="Business ID" required/>
+            <input type="file" onChange={handlePictureChange}
+                   required/>
             <div className="spacer"></div>
             <button type="submit">Register</button>
             <div className="spacer"></div>
