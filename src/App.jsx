@@ -1,11 +1,12 @@
 import './App.css'
 import Navigation from './components/Navigation.jsx';
+import {MainContextProvider} from "./Context/MainContext.jsx";
 
 function App() {
     return (
-        <div>
+        <MainContextProvider>
             <Navigation/>
-        </div>
+        </MainContextProvider>
     );
 }
 
