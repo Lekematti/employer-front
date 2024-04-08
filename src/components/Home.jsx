@@ -1,4 +1,5 @@
-// Home.jsx
+import Sidebar from './Sidebar';
+import '../CSS/Home.css';
 import {useState, useEffect} from 'react';
 
 function Home() {
@@ -12,7 +13,9 @@ function Home() {
     }, []);
 
     return (
-        <div>
+        <div className="home">
+          <Sidebar/>
+          <div className="main-content">
             <h1>Welcome to the home screen!</h1>
             {user && (
                 <div>
@@ -23,6 +26,7 @@ function Home() {
                 </div>
             )}
             {/* ... other code ... */}
+          </div>
         </div>
     );
 }

@@ -11,6 +11,11 @@ function Navigation() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/home" element={<Home/>}/>
+                {/*<Route path="/add-roles" element={<AddRoles/>}/>
+                <Route path="/manage-roles" element={<ManageRoles/>}/>
+                <Route path="/manage-users" element={<ManageUsers/>}/>
+                <Route path="/manage-work-hours" element={<ManageWorkHours/>}/>
+                <Route path="/manage-work-places" element={<ManageWorkPlaces/>}/>*/}
             </Routes>
         </div>
     );
