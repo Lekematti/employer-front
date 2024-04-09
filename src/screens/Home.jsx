@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar';
+import Sidebar from '../components/Sidebar';
 import '../CSS/Home.css';
 import {useState, useEffect} from 'react';
 

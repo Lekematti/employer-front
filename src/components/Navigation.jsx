@@ -1,10 +1,10 @@
 import {Routes, Route, Navigate} from 'react-router-dom';
-import Login from "./Login.jsx";
-import Register from "./Register.jsx";
-import Home from "./Home.jsx";
+import Login from "../screens/Login.jsx";
+import Register from "../screens/Register.jsx";
+import Home from "../screens/Home.jsx";
 import {MainContext} from "../Context/MainContext.jsx";
 import {useContext} from "react";
-import WorkPlaces from "./WorkPlaces.jsx";
+import WorkPlaces from "../screens/WorkPlaces.jsx";
 
 function Navigation() {
     const {isLogged} = useContext(MainContext);
