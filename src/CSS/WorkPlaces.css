@@ -1,0 +1,13 @@
+.work-places {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.work-area-map{
+    flex-grow: 1; /* This allows the map to take up the remaining space */
+    height: 100%;
+}
