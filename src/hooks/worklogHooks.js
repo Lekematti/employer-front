@@ -16,7 +16,7 @@ const worklogHooks = () => {
         },
       };
       const res = await axios.get(
-        API_URL + "workLogs/company/" + companyId,
+        API_URL + "worklogs/company/" + companyId,
         options
       );
       return res.data;
@@ -34,7 +34,7 @@ const worklogHooks = () => {
           Authorization: "Bearer " + token,
         },
       };
-      const res = await axios.get(API_URL + "workLogs/", options);
+      const res = await axios.get(API_URL + "worklogs/", options);
       return res.data;
     } catch (err) {
       console.error(err);
@@ -50,7 +50,7 @@ const worklogHooks = () => {
           Authorization: "Bearer " + token,
         },
       };
-      const res = await axios.get(API_URL + "workLogs/" + userId, options);
+      const res = await axios.get(API_URL + "worklogs/" + userId, options);
       return res.data;
     } catch (err) {
       console.error(err);
@@ -66,7 +66,7 @@ const worklogHooks = () => {
         },
       };
       const res = await axios.get(
-        API_URL + "workLogs/" + userId + "/" + workAreaId,
+        API_URL + "worklogs/" + userId + "/" + workAreaId,
         options
       );
       return res.data;
