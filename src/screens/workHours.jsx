@@ -1,9 +1,10 @@
 import React from "react";
 import WorklogTable from "../components/WorklogTable";
 
+
 function WorkHours() {
   return (
-    <div>
+      <div>
       <WorklogTable />
     </div>
   );
