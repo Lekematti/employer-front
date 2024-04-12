@@ -9,9 +9,9 @@ const IconsComponent = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
-  useEffect(() => {
+/*   useEffect(() => {
     fetchNotifications(); // This might be optional if your context automatically fetches notifications
-  }, [fetchNotifications]);
+  }, [fetchNotifications]); */
 
   useEffect(() => {
     const handleClickOutside = (event) => {
