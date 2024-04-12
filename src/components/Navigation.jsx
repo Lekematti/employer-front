@@ -6,27 +6,32 @@ import ManageWorkHours from "../screens/workHours.jsx";
 import {MainContext} from "../Context/MainContext.jsx";
 import {useContext} from "react";
 import WorkPlaces from "../screens/WorkPlaces.jsx";
+import IconsComponent from './IconsComponent.jsx';
 
 function Navigation() {
     const {isLogged} = useContext(MainContext);
+
     return (
-        isLogged ? (
+        <>
+            {isLogged && <IconsComponent />}
             <Routes>
-                <Route path="/home" element={<Home/>}/>
-                <Route path="/manage-work-places" element={<WorkPlaces/>}/>
-                <Route path="/manage-work-hours" element={<ManageWorkHours/>}/>
-                {/* <Route path="/add-roles" element={<AddRoles/>}/>
-                <Route path="/manage-roles" element={<ManageRoles/>}/>
-                <Route path="/manage-users" element={<ManageUsers/>}/> */}
-               
+                {isLogged ? (
+                    <>
+                        <Route path="/home" element={<Home/>}/>
+                        <Route path="/manage-work-places" element={<WorkPlaces/>}/>
+                        <Route path="/manage-work-hours" element={<ManageWorkHours/>}/>
+                        {/* More authenticated routes */}
+                    </>
+                ) : (
+                    <>
+                        <Route path="/" element={<Navigate to="/login"/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/register" element={<Register/>}/>
+                        {/* Potentially more public routes */}
+                    </>
+                )}
             </Routes>
-        ) : (
-            <Routes>
-                <Route path="/" element={<Navigate to="/login"/>}/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/register" element={<Register/>}/>
-            </Routes>
-        )
+        </>
     );
 }
 
