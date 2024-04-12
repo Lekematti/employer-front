@@ -91,23 +91,31 @@ const workAreaHooks = () => {
 
   // approve work area join request
   const approveWorkAreaJoinRequest = async (workerId, workAreaId) => {
+
+    console.log("Token fetched:", token);  // Check if the token is correctly retrieved
+    
+    if (!token) {
+      console.error("No token found");
+      return { message: "Unauthorized" };
+    }
+  
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    };
+  
+    const data = JSON.stringify({ workerId, workAreaId });
+    console.log("Data to send:", data);  // Check if the data is correctly formatted
+  
     try {
-      const options = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-        body: JSON.stringify({ workerId, workAreaId }),
-      };
-      const res = await axios.post(
-        API_URL + "workAreas/approveJoinRequest",
-        options
-      );
-      return res.data;
+      const response = await axios.post(API_URL + "workAreas/approveJoinRequest", data, { headers });
+      return response.data;
     } catch (err) {
-      console.error(err);
+      console.error("Error in approveWorkAreaJoinRequest:", err);
+      return { message: "Request failed", error: err };
     }
   };
+  
   return {
     getWorkAreas,
     getWorkAreaByWorkAreaId,

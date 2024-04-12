@@ -6,7 +6,7 @@ const NotificationDropdown = ({ notifications }) => {
 
   const handleNotificationClick = (notif) => {
     // Placeholder function for navigation
-     navigate(`/notifications`); // Example route, adjust as needed
+    navigate(`/notifications`);
     console.log(
       `Redirecting to notification detail for workArea ID: ${notif.workArea_id}`
     );

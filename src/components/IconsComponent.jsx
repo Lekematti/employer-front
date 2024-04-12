@@ -1,34 +1,18 @@
-// IconsComponent.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBell } from "@fortawesome/free-solid-svg-icons";
-import workAreaHooks from "../hooks/workAreaHooks";
+import { useNotificationContext } from '../Context/NotificationContext'; // Adjust path as needed
 import NotificationDropdown from "./NotificationDropdown";
 
 const IconsComponent = () => {
-  const [notificationCount, setNotificationCount] = useState(0);
+  const { notifications, notificationCount, fetchNotifications } = useNotificationContext();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [notifications, setNotifications] = useState([]);
-  const { getAllWorkAreaJoinRequests } = workAreaHooks();
-  const dropdownRef = useRef(null); // Ref for the dropdown element
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
-    const fetchNotifications = async () => {
-      try {
-        const data = await getAllWorkAreaJoinRequests();
-        if (data && Array.isArray(data)) {
-          setNotificationCount(data.length); // Set the count to the number of pending requests
-          setNotifications(data); // Set the notifications to the pending requests
-        }
-      } catch (error) {
-        console.error("Failed to fetch notifications:", error);
-      }
-    };
+    fetchNotifications(); // This might be optional if your context automatically fetches notifications
+  }, [fetchNotifications]);
 
-    fetchNotifications();
-  }, []);
-
-  // Close the dropdown when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -36,25 +20,19 @@ const IconsComponent = () => {
       }
     };
 
-    if (showDropdown) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showDropdown]);
+  }, []);
 
   const toggleDropdown = () => setShowDropdown(!showDropdown);
   const handleUserIconClick = () => {
-    console.log("User icon clicked"); // Placeholder for user icon click action
+    console.log("User icon clicked");
   };
 
   return (
-    <div
-      style={{ position: "fixed", top: "20px", right: "36px", zIndex: "1000" }}
-      ref={dropdownRef}
-    >
+    <div style={{ position: "fixed", top: "20px", right: "36px", zIndex: "1000" }} ref={dropdownRef}>
       <FontAwesomeIcon
         icon={faUser}
         style={{ fontSize: "24px", marginRight: "20px", cursor: "pointer" }}
@@ -83,7 +61,7 @@ const IconsComponent = () => {
               fontSize: "12px",
               cursor: "pointer",
             }}
-            onClick={toggleDropdown} // Allows clicking the badge to also toggle the dropdown
+            onClick={toggleDropdown}
           >
             {notificationCount}
           </span>
