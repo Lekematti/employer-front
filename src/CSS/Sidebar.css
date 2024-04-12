@@ -1,3 +1,13 @@
+.app-container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .content-area {
+    flex-grow: 1; /* Takes up the remaining space */
+    overflow-y: auto; /* Adds scroll to the main content area if needed */
+    padding-top: 60px;
+  }
 .sidebar {
     width: 200px;
     height: 100vh;
