@@ -6,8 +6,21 @@
     padding: 0;
     height: 100%;
 }
-
-.work-area-map{
-    flex-grow: 1; /* This allows the map to take up the remaining space */
-    height: 100%;
+.sidebar {
+margin-right: 10px;
 }
+body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.map-container {
+    flex-grow: 1;
+    height: 100vh; /* Adjust as needed */
+}
+.leaflet-container {
+    margin-top: 10px;
+    height: 40vh;
+    width: 50vw;
+}
+

@@ -1,31 +1,29 @@
-import {MapContainer, TileLayer} from 'react-leaflet';
+import {MapContainer, TileLayer, } from "react-leaflet";
+import "../CSS/WorkPlaces.css";
+import LocationMarker from "../components/LocationMarker.jsx";
+import {useState} from "react";
+import WorkAreaForm from "./WorkAreaForm.jsx";
+
 
 function WorkAreaMap() {
-    const tileLayerBounds = [[59.9222, 20.6459], [70.0923, 31.5860]]; // Bounds for Finland
+    const [marker, setMarker] = useState(null);
+
+    const addMarker = (newMarker) => {
+        setMarker(newMarker);
+    };
 
     return (
-        <MapContainer center={[65.0121, 25.4651]} zoom={13} style={{ height: "100vh", width: "100%" }}>
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                bounds={tileLayerBounds}
-            />
-        </MapContainer>
+        <div className="map-container">
+            <MapContainer center={[60.1674881, 24.9427473]} zoom={15} scrollWheelZoom={true}>
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <LocationMarker onMarkerAdded={addMarker}/>
+            </MapContainer>
+            <WorkAreaForm marker={marker}/>
+        </div>
     );
 }
-/*
-function LocationMarker() {
-    const [positions, setPositions] = useState([]);
-    useMapEvents({
-        click: (e) => {
-            setPositions([...positions, e.latlng]);
-        },
-    });
-
-    return positions.length === 0 ? null : positions.map((position, idx) => (
-        <Marker key={idx} position={position}>
-            <Popup>You selected this work area</Popup>
-        </Marker>
-    ));
-}*/
 
 export default WorkAreaMap;
