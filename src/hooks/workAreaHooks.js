@@ -115,6 +115,24 @@ const workAreaHooks = () => {
       return { message: "Request failed", error: err };
     }
   };
+  // delete workArea join request
+  const deleteWorkAreaJoinRequest = async (workerId, workAreaId) => {
+    try {
+      const options = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      };
+      const res = await axios.delete(
+        API_URL + "workAreas/deleteRequest/" + workerId + "/" + workAreaId,
+        options
+      );
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
   
   return {
     getWorkAreas,
@@ -123,6 +141,7 @@ const workAreaHooks = () => {
     createWorkArea,
     getAllWorkAreaJoinRequests,
     approveWorkAreaJoinRequest,
+    deleteWorkAreaJoinRequest,
   };
 };
 
