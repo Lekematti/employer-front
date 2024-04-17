@@ -9,10 +9,6 @@ const IconsComponent = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
-/*   useEffect(() => {
-    fetchNotifications(); // This might be optional if your context automatically fetches notifications
-  }, [fetchNotifications]); */
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -43,32 +39,28 @@ const IconsComponent = () => {
         style={{ fontSize: "24px", cursor: "pointer" }}
         onClick={toggleDropdown}
       />
-      {notificationCount > 0 && (
-        <>
-          <span
-            style={{
-              position: "absolute",
-              top: "-5px",
-              right: "-5px",
-              background: "red",
-              borderRadius: "50%",
-              width: "20px",
-              height: "20px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "white",
-              fontSize: "12px",
-              cursor: "pointer",
-            }}
-            onClick={toggleDropdown}
-          >
-            {notificationCount}
-          </span>
-          {showDropdown && (
-            <NotificationDropdown notifications={notifications} />
-          )}
-        </>
+      <span
+        style={{
+          position: "absolute",
+          top: "-5px",
+          right: "-5px",
+          background: "red",
+          borderRadius: "50%",
+          width: "20px",
+          height: "20px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "white",
+          fontSize: "12px",
+          cursor: "pointer",
+        }}
+        onClick={toggleDropdown}
+      >
+        {notificationCount}
+      </span>
+      {showDropdown && (
+        <NotificationDropdown notifications={notifications} />
       )}
     </div>
   );
