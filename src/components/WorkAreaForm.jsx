@@ -1,34 +1,35 @@
-import axios from 'axios';
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import PropTypes from "prop-types";
+import WorkAreaHooks from "../hooks/workAreaHooks.js";
+import {MainContext} from "../Context/MainContext.jsx";
 
 function WorkAreaForm({ marker }) {
-    const [companyId, setCompanyId] = useState('');
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [radius, setRadius] = useState('');
     const [accessCode, setAccessCode] = useState('');
     const [latitude, setLatitude] = useState('60.0000');
     const [longitude, setLongitude] = useState('24.0000');
+    const {createWorkArea} = WorkAreaHooks()
+    const {user} = useContext(MainContext);
 
     useEffect(() => {
         if (marker && marker.latitude && marker.longitude) {
             setLatitude(marker.latitude);
             setLongitude(marker.longitude);
+            console.log("Updated Latitude:", latitude);
+            console.log("Updated Longitude:", longitude);
         }
     }, [marker]);
 
-    useEffect(() => {
-        console.log("Updated Latitude:", latitude);
-        console.log("Updated Longitude:", longitude);
-    }, [latitude, longitude]);
-
-
+    console.log(user)
+    console.log(user.businessId);
+    console.log(user.account.businessId);
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const workArea = {
-            company_id: companyId,
+            company_id: user.account.businessId,
             name,
             description,
             latitude,
@@ -38,12 +39,7 @@ function WorkAreaForm({ marker }) {
         };
 
         try {
-            const response = await axios({
-                method: 'post',
-                url: '/api/workArea',
-                data: workArea,
-                headers: { 'Content-Type': 'application/json' }
-            });
+            const response = await createWorkArea(workArea);
             console.log(response.data);
         } catch (error) {
             console.error('There was an error!', error);
@@ -51,7 +47,6 @@ function WorkAreaForm({ marker }) {
     };
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" value={companyId} onChange={(e) => setCompanyId(e.target.value)} placeholder="Company ID" required/>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required/>
             <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" required/>
 

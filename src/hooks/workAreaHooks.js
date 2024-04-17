@@ -64,8 +64,12 @@ const workAreaHooks = () => {
           "Content-Type": "application/json",
           Authorization: "Bearer " + token,
         },
+        body: JSON.stringify({ workArea }),
       };
-      const res = await axios.post(API_URL + "workAreas", workArea, options);
+      if (!workArea.company_id || !workArea.name || !workArea.description || !workArea.latitude || !workArea.longitude || !workArea.radius || !workArea.access_code) {
+        throw new Error('All workArea properties must be defined');
+      }
+      const res = await axios.post(API_URL + "workAreas/createWorkArea", workArea, options);
 
       return res.data;
     } catch (err) {
