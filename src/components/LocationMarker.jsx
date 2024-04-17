@@ -15,7 +15,7 @@ function LocationMarker({ onMarkerAdded }) {
             setPosition(e.latlng);
             map.flyTo(e.latlng, map.getZoom());
             onMarkerAdded({ latitude, longitude }); // Pass latitude and longitude to the parent component
-            console.log("Marker added:", { lat, lng }); // Log marker data
+            console.log("Marker added:", { latitude, longitude }); // Log marker data
 
         },
     });
