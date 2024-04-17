@@ -4,45 +4,37 @@ import WorkAreaHooks from "../hooks/workAreaHooks.js";
 import {MainContext} from "../Context/MainContext.jsx";
 
 function WorkAreaForm({ marker }) {
-    const [company_id, setCompany_id] = useState('');
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [radius, setRadius] = useState('');
-    const [latitude, setLatitude] = useState('60.0000');
-    const [longitude, setLongitude] = useState('24.0000');
+   /* const [latitude, setLatitude] = useState("60.0000");
+    const [longitude, setLongitude] = useState("24.0000");*/
     const {createWorkArea} = WorkAreaHooks()
     const {user} = useContext(MainContext);
 
-    useEffect(() => {
-        if (marker && marker.latitude && marker.longitude) {
+   /* useEffect(() => {
+        if (marker) {
             setLatitude(marker.latitude);
             setLongitude(marker.longitude);
             //console.log("Updated Latitude:", latitude);
             //console.log("Updated Longitude:", longitude);
         }
-    }, [latitude, longitude, marker]);
+    }, [marker]);*/
 
-
-    useEffect(() => {
-        if (user.account.businessId) {
-            setCompany_id(user.account.businessId);
-        }
-    }
-    , [user.account.businessId]);
-
-    //console.log('user:', user);
+if (marker) {
+    console.log("marker",marker.lat.toString());
+}
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        console.log("position",marker.lng, marker.lat);
         const workArea = {
-            company_id: company_id.toString(),
+            company_id: user.account.businessId.toString(),
             name,
             description,
-            latitude,
-            longitude,
+            latitude: marker.lat.toString(),
+            longitude: marker.lng.toString(),
             radius,
         };
-        //console.log(workArea);
         try {
             const response = await createWorkArea(workArea);
             console.log(response);
@@ -53,26 +45,20 @@ function WorkAreaForm({ marker }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type={"hidden"} value={company_id}/>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required/>
             <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" required/>
 
-            <input type="text" value={latitude} readOnly placeholder="Latitude" required/>
-            <input type="text" value={longitude} readOnly placeholder="Longitude" required/>
+            {/*<input type="text" value={latitude} onChange={(e) => setLatitude(e.target.value)} placeholder="Latitude" required/>
+            <input type="text" value={longitude} onChange={(e) => setLongitude(e.target.value)} placeholder="Longitude" required/>*/}
 
             <input type="text" value={radius} onChange={(e) => setRadius(e.target.value)} placeholder="Radius" required/>
             <button type="submit">Create Work Area</button>
         </form>
     );
 }
-
-
 WorkAreaForm.propTypes = {
-    marker: PropTypes.shape({
-        lat: PropTypes.string,
-        lng: PropTypes.string,
-        latitude: PropTypes.string,
-        longitude: PropTypes.string
-    })
+    marker: PropTypes.object
 };
+
+
 export default WorkAreaForm;

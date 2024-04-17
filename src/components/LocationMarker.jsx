@@ -9,14 +9,10 @@ function LocationMarker({ onMarkerAdded }) {
     const map = useMapEvents({
         click(e) {
             const { lat, lng } = e.latlng;
-            const latitude = lat.toString();
-            const longitude = lng.toString();
-            lng.toString();
             setPosition(e.latlng);
             map.flyTo(e.latlng, map.getZoom());
-            onMarkerAdded({ latitude, longitude }); // Pass latitude and longitude to the parent component
-            console.log("Marker added:", { latitude, longitude }); // Log marker data
-
+            onMarkerAdded({ lat, lng }); // Pass latitude and longitude to the parent component
+            console.log("Marker added:", { lat, lng }); // Log marker data
         },
     });
 
@@ -24,7 +20,6 @@ function LocationMarker({ onMarkerAdded }) {
         <CustomMarker position={position} onDelete={() => {}} />
     ) : null;
 }
-
 
 LocationMarker.propTypes = {
     onMarkerAdded: PropTypes.func.isRequired,
