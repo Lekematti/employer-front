@@ -2,14 +2,16 @@ import {MapContainer, TileLayer, } from "react-leaflet";
 import "../CSS/WorkPlaces.css";
 import LocationMarker from "../components/LocationMarker.jsx";
 import {useState} from "react";
-import WorkAreaForm from "./WorkAreaForm.jsx";
+import CreateWorkArea from "./CreateWorkArea.jsx";
 
 
 function WorkAreaMap() {
     const [marker, setMarker] = useState(null);
 
     const addMarker = (newMarker) => {
-        setMarker(newMarker);
+        console.log("New Marker:", newMarker);
+        //setMarker(newMarker);
+        setMarker({lat: 70.0000, lng: 40.0000});
     };
 
     return (
@@ -21,7 +23,7 @@ function WorkAreaMap() {
                 />
                 <LocationMarker onMarkerAdded={addMarker}/>
             </MapContainer>
-            <WorkAreaForm marker={marker}/>
+            <CreateWorkArea marker={marker}/>
         </div>
     );
 }
