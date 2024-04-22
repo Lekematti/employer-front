@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../screens/Login.jsx";
 import Register from "../screens/Register.jsx";
 import Home from "../screens/Home.jsx";
+import Profile from "../screens/Profile.jsx";
 import ManageWorkHours from "../screens/workHours.jsx";
 import { MainContext } from "../Context/MainContext.jsx";
 import { useContext } from "react";
@@ -40,6 +41,8 @@ function Navigation() {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       )}
     </div>

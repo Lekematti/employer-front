@@ -1,5 +1,5 @@
-import '../CSS/Home.css';
 import Sidebar from '../components/Sidebar';
+import '../CSS/Home.css';
 import { useState, useEffect } from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +16,7 @@ function Home() {
     }, []);
 
     return (
-        <div className="home">
+        <div className="home" >
             <Sidebar />
             <IconsComponent />
             <div className="main-content">

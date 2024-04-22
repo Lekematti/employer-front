@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import '../CSS/Register.css';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 
@@ -44,30 +45,54 @@ const handlePictureChange = (e) => {
 };
 
     return (
+        <div className="page-wrapper">
+        <>
+        <div className="otsikko">
+        <img src="../src/assets/logo.png" className="logo"></img>
+          <h1>WORKPLACE TRACKER</h1>
+        </div>
+        <div className="otsikko2">
+        <h1>Welcome ‎ ‎‎ ‎‎‎ ‎back!</h1>
+            </div>
+            <div className="otsikko5">
+            <h1>Log ‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎‎ ‎‎ ‎‎ ‎‎ ‎‎‎ ‎‎ ‎‎‎in</h1>
+            </div>
+            <div className="otsikko6">
+            <h1>Sign ‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎‎‎‎‎‎ ‎‎‎ ‎‎‎ ‎‎‎ ‎ ‎‎‎ ‎ up</h1>
+            </div>
+       
+        <div className="tausta">
+        <img src="../src/assets/kuva.png" className="kuva" />
+            </div>
+        <div className="register-container">
         <form onSubmit={handleSubmit}>
-            <h1>Register</h1>
+            <h1 className="centered">Register</h1>
+       
             <div className="spacer"></div>
-            <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Full Name" required/>
+            <input type="file" onChange={handlePictureChange}
+                   required/>
+                   <div className="spacer"></div>
+            <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Full name" required/>
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required/>
             <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password"
                    required/>
             <input type="text" value={address} onChange={e => setAddress(e.target.value)} placeholder="Address"
                    required/>
-            <input type="text" value={phone} onChange={e => setPhone(e.target.value)} placeholder="Phone Number"
+            <input type="number" value={phone} onChange={e => setPhone(e.target.value)} placeholder="Phone number"
                    required/>
             <input type="text" value={businessId} onChange={e => setBusinessId(e.target.value)}
                    placeholder="Business ID" required/>
-            <input type="file" onChange={handlePictureChange}
-                   required/>
-            <div className="spacer"></div>
             <button type="submit">Register</button>
-            <div className="spacer"></div>
-            <div>
-                <button onClick={toggleView}>
-                    Go to Login
+            <div className="account-text">
+            <p>Already have an account?</p>
+                <button onClick={toggleView} className="login-button">
+                    Login
                 </button>
-            </div>
+                </div>
         </form>
+        </div>
+        </>
+        </div>
     );
 }
 
