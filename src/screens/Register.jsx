@@ -1,7 +1,7 @@
 import {useState} from 'react';
+import '../CSS/Register.css';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
-import '../CSS/Register.css';
 
 function Register() {
     const [name, setName] = useState("");
@@ -45,6 +45,7 @@ const handlePictureChange = (e) => {
 };
 
     return (
+        <div className="page-wrapper">
         <>
         <div className="otsikko">
         <img src="../src/assets/logo.png" className="logo"></img>
@@ -91,6 +92,7 @@ const handlePictureChange = (e) => {
         </form>
         </div>
         </>
+        </div>
     );
 }
 

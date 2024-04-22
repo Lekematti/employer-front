@@ -1,13 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-body {
-    display: flex;
-    height: 100vh;
 
-  }
   form {
       display: flex;
       flex-direction: column;
@@ -38,6 +29,9 @@ body {
   
   form button:hover {
       background-color: #45a049;
+  }
+  .page-wrapper {
+    background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
   }
   
     .account-text {

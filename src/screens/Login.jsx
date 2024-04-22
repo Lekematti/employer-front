@@ -1,9 +1,9 @@
-
+import '../CSS/Login.css';
 import { useContext, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { MainContext } from "../Context/MainContext.jsx";
-import '../CSS/Login.css';
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -35,6 +35,7 @@ function Login() {
   };
 
   return (
+    <div className="page-wrapper">
     <>
     <div className="otsikko">
     <img src="../src/assets/logo.png" className="logo"></img>
@@ -82,6 +83,7 @@ function Login() {
           </div>
         </div>
   </>
+  </div>
   );
 }
 
