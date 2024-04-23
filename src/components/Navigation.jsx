@@ -17,14 +17,12 @@ function Navigation() {
 
   return (
     <div className="app-container">
-      {" "}
-      {/* New container for layout */}
+      
       {isLogged && (
         <>
           <Sidebar />
           <div className="content-area">
-            {" "}
-            {/* New container for main content */}
+            
             <IconsComponent />
             <Routes>
               <Route path="/home" element={<Home />} />
