@@ -1,3 +1,4 @@
+/*
 import {MapContainer, TileLayer, } from "react-leaflet";
 import "../CSS/WorkPlaces.css";
 import LocationMarker from "../components/LocationMarker.jsx";
@@ -10,8 +11,8 @@ function WorkAreaMap() {
 
     const addMarker = (newMarker) => {
         console.log("New Marker:", newMarker);
-        //setMarker(newMarker);
-        setMarker({lat: 70.0000, lng: 40.0000});
+        setMarker(newMarker);
+        //setMarker({lat: 70.0000, lng: 40.0000});
     };
 
     return (
@@ -28,4 +29,4 @@ function WorkAreaMap() {
     );
 }
 
-export default WorkAreaMap;
+export default WorkAreaMap;*/

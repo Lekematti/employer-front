@@ -1,6 +1,5 @@
 import Sidebar from "../components/Sidebar";
 import "../CSS/WorkPlaces.css";
-import WorkAreaMap from "../components/WorkAreaMap.jsx";
 import CreateWorkArea from "../components/CreateWorkArea.jsx";
 import WorkArea from "../components/workArea.jsx";
 
@@ -10,9 +9,7 @@ function WorkPlaces() {
           <div className="sidebar">
             <Sidebar />
           </div>
-          <div className="leaflet-container">
-            <WorkAreaMap />
-          </div>
+
           <CreateWorkArea />
         {/*<WorkArea />*/}
       </div>

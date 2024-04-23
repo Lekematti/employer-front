@@ -1,3 +1,4 @@
+/*
 // LocationMarker.jsx
 import { useState } from "react";
 import {useMapEvents} from "react-leaflet";
@@ -26,4 +27,4 @@ LocationMarker.propTypes = {
     onDelete: PropTypes.func,
 };
 
-export default LocationMarker;
+export default LocationMarker;*/
