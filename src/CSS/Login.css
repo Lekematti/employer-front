@@ -1,13 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-body {
-    display: flex;
-    height: 100vh;
 
-  }
   form {
       display: flex;
       flex-direction: column;
@@ -39,7 +30,7 @@ body {
   form button:hover {
       background-color: #45a049;
   }
-  
+
     .account-text {
       display: flex;
       align-items: center;

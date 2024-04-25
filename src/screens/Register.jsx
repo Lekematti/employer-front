@@ -46,6 +46,7 @@ const handlePictureChange = (e) => {
 
     return (
         <>
+         <div className="background-container">
         <div className="otsikko">
         <img src="../src/assets/logo.png" className="logo"></img>
           <h1>WORKPLACE TRACKER</h1>
@@ -89,6 +90,7 @@ const handlePictureChange = (e) => {
                 </button>
                 </div>
         </form>
+        </div>
         </div>
         </>
     );

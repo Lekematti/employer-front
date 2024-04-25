@@ -1,18 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-body {
-  background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
-    
-    background-repeat: no-repeat; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-  }
+
+
   form input[type="number"], form input[type="text"] {
     width: 100%;
     padding: 15px;
@@ -38,6 +25,10 @@ body {
     cursor: pointer;  
     background-color: transparent;
     padding: 0px;
+}
+.background-container {
+  background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
+  min-height: 100vh;
 }
 .login-button:hover {
     background-color: transparent;

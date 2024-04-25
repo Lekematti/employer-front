@@ -10,6 +10,8 @@ import IconsComponent from "./IconsComponent.jsx";
 import NotificationsScreen from "../screens/Notifications.jsx";
 import Sidebar from "./Sidebar";
 import "../CSS/Sidebar.css";
+import Profile from "../screens/Profile.jsx";
+import EditProfile from "../screens/EditProfile.jsx";
 
 function Navigation() {
   const { isLogged } = useContext(MainContext);
@@ -41,6 +43,9 @@ function Navigation() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/editprofile" element={<EditProfile />} />
+          
         </Routes>
       )}
     </div>

@@ -1,0 +1,59 @@
+.edit-profile-container {
+    max-width: 600px;
+    margin-left: 200px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fcfcfc; 
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    width: 80%;
+    
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="number"],
+  .form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  button.update-button {
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.update-button:hover {
+    background-color: #0056b3;
+  }
+  .edit {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 38px;
+  }
+  
