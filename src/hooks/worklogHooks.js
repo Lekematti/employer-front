@@ -75,11 +75,31 @@ const worklogHooks = () => {
     }
   };
 
+  // get todays worklog by userId for workAreaId
+  const getTodaysWorkLogByUserIdAndWorkAreaId = async (userId, workAreaId) => {
+    try {
+      const options = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      };
+      const res = await axios.get(
+        API_URL + "worklogs/" + userId + "/" + workAreaId + "/today",
+        options
+      );
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return {
     getWorkLogsByCompanyId,
     getWorkLogs,
     getWorkLogByUserId,
     getWorkLogByUserIdAndWorkAreaId,
+    getTodaysWorkLogByUserIdAndWorkAreaId,
   };
 };
 

@@ -11,6 +11,7 @@ import IconsComponent from "./IconsComponent.jsx";
 import NotificationsScreen from "../screens/Notifications.jsx";
 import Sidebar from "./Sidebar";
 import "../CSS/Sidebar.css";
+import ManageWorkAreas from "../screens/ManageWorkAreas.jsx";
 
 function Navigation() {
   const { isLogged } = useContext(MainContext);
@@ -29,6 +30,7 @@ function Navigation() {
               <Route path="/manage-work-places" element={<WorkPlaces />} />
               <Route path="/manage-work-hours" element={<ManageWorkHours />} />
               <Route path="/notifications" element={<NotificationsScreen />} />
+              <Route path="/edit" element={<ManageWorkAreas />} />
               {/* More authenticated routes */}
             </Routes>
           </div>
@@ -41,6 +43,7 @@ function Navigation() {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/edit" element={<ManageWorkAreas />} />
         </Routes>
       )}
     </div>
