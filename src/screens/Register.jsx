@@ -45,7 +45,6 @@ const handlePictureChange = (e) => {
 };
 
     return (
-        <div className="page-wrapper">
         <>
          <div className="background-container">
         <div className="otsikko">
@@ -94,7 +93,6 @@ const handlePictureChange = (e) => {
         </div>
         </div>
         </>
-        </div>
     );
 }
 

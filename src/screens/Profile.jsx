@@ -24,7 +24,7 @@ function Profile() {
   };
 
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper1">
       <div className="profile-container">
       <h2 className="profile-title">Profile</h2>
         <img src={user.avatar} alt="Profile avatar" className="profile-avatar" />

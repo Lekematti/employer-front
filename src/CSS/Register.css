@@ -1,6 +1,4 @@
-body {
-  background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
-}
+
   form input[type="number"], form input[type="text"] {
     width: 100%;
     padding: 15px;
