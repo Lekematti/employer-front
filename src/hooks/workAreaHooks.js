@@ -133,6 +133,24 @@ const workAreaHooks = () => {
       console.error(err);
     }
   };
+  // get workareas by company id
+  const getWorkAreasByCompanyId = async (companyId) => {
+    try {
+      const options = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      };
+      const res = await axios.get(
+        API_URL + "workAreas/company/" + companyId,
+        options
+      );
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
   
   return {
     getWorkAreas,
@@ -142,6 +160,7 @@ const workAreaHooks = () => {
     getAllWorkAreaJoinRequests,
     approveWorkAreaJoinRequest,
     deleteWorkAreaJoinRequest,
+    getWorkAreasByCompanyId,
   };
 };
 

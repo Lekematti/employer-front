@@ -1,5 +1,6 @@
-
-
+body {
+  background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
+}
   form input[type="number"], form input[type="text"] {
     width: 100%;
     padding: 15px;
@@ -9,6 +10,10 @@
     margin-bottom: 10px; 
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
+.page-wrapper {
+  background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
+}
+
 .account-text {
     display: flex;
     align-items: center;

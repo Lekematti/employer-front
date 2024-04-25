@@ -1,8 +1,10 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+
 .home {
     background-color: #EFEFEF;
     text-align: center;
@@ -32,7 +34,7 @@
 
 .home h1 {
     margin: 0 auto;
-    padding: 15px;
+    padding: 5px;
     font-size: 30px;
 }
 
@@ -89,4 +91,25 @@
 .box-header {
     text-align: center;
     font-weight: bold;
+}
+.no-work-areas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.create-work-area-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF; /* Bootstrap primary color for reference */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-work-area-btn:hover {
+    background-color: #0056b3;
 }
