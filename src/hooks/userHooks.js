@@ -53,9 +53,19 @@ const userHooks = () => {
     
             // Fetch today's work logs for each user in the work area
             const usersWithLogs = await Promise.all(users.map(async user => {
-                const logRes = await axios.get(API_URL + `worklogs/${user.id}/${workAreaId}/today`, options);
-                const workLog = logRes.data.length ? logRes.data[0] : null;  // assuming the API returns an array
-                return { ...user, workLog };  // Spread the user and add workLog information
+                try {
+                    const logRes = await axios.get(API_URL + `worklogs/${user.id}/${workAreaId}/today`, options);
+                    const workLog = logRes.data.length ? logRes.data[0] : null;  // assuming the API returns an array
+                    return { ...user, workLog };  // Spread the user and add workLog information
+                } catch (error) {
+                    // Handle 404 error when no work log is found for today
+                    if (error.response && error.response.status === 404) {
+                        console.log('No work log found for today.');
+                        return { ...user, workLog: null }; // Return user without work log
+                    } else {
+                        throw error; // Rethrow other errors
+                    }
+                }
             }));
     
             return usersWithLogs;
@@ -65,6 +75,23 @@ const userHooks = () => {
         }
     };
 
-    return { getUserById, getUsersByWorkAreaId, getUsersAndLogsByWorkAreaId};
+    const getUserDetailsByWorkAreaId = async (workAreaId) => {
+        const options = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + token,  // Ensure token is defined and valid
+            },
+        };
+    
+        try {
+            const response = await axios.get(`${API_URL}user/workArea/${workAreaId}/users`, options);
+            return response.data;  // Return user details
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+            return [];  // Return empty array on error
+        }
+    };
+    
+    return { getUserById, getUsersByWorkAreaId, getUsersAndLogsByWorkAreaId, getUserDetailsByWorkAreaId};
 };
 export default userHooks;

@@ -103,3 +103,37 @@ li:hover {
     border-radius: 10px; /* Rounded corners for the box */
     font-weight: bold; /* Bold text for emphasis */
 }
+.activity-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Circular indicator */
+    display: inline-block;
+    margin-right: 5px; /* Space before the name or comment */
+}
+
+.activity-indicator.active {
+    background-color: green; /* Active status */
+}
+
+.activity-indicator.inactive {
+    background-color: grey; /* Inactive status */
+}
+
+.work-area-name, .last-comment {
+    font-style: italic; /* Styling for the work area name or last comment */
+    margin-left: 10px; /* Space from the indicator */
+    color: #555; /* Slightly dim color for less emphasis */
+}
+
+/* Ensure that the list items for user details are spaced adequately */
+.user-details li {
+    padding: 10px 0; /* Adds vertical padding for better separation */
+    align-items: center;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+}
+
+/* Additional styling to separate elements within each user detail */
+.user-details li > span, .user-details li > div {
+    margin-right: 10px; /* Consistent spacing between elements */
+}
