@@ -11,7 +11,7 @@
 .sidebar {
     width: 200px;
     height: 100vh;
-    background-color: #283C3F;
+   background-color: #283C3F;
   position: fixed;
   flex-direction: column; /* Set the direction to column */
   align-items: center; /* Center align items horizontally */

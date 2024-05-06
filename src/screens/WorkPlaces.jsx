@@ -1,16 +1,18 @@
 import Sidebar from "../components/Sidebar";
-import "../CSS/Home.css";
-import WorkArea from "../components/workArea";
+import "../CSS/WorkPlaces.css";
+import CreateWorkArea from "../components/CreateWorkArea.jsx";
+import WorkArea from "../components/workArea.jsx";
 
 function WorkPlaces() {
   return (
-    <div className="home">
-      <Sidebar />
-      <div className="main-content">
-        <h1>Work palace management screen!</h1>
-        <WorkArea />
+      <div className="work-places">
+          <div className="sidebar">
+            <Sidebar />
+          </div>
+
+          <CreateWorkArea />
+        {/*<WorkArea />*/}
       </div>
-    </div>
   );
 }
 
