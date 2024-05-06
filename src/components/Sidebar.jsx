@@ -9,20 +9,20 @@ function Sidebar() {
 
     return (
         <div className="sidebar">
-            <h3>Sidebar</h3>
-            <button onClick={() => navigate('/home')}>WPT</button>
+            
+            <button onClick={() => navigate('/home')} className="wpt-button">WPT</button> 
+            <div className="spacer"></div> 
+            <button onClick={() => navigate('/add-roles')}><FontAwesomeIcon icon={faPlus} style={{ fontSize: '30px' }}/> Add roles</button>
             <div className="spacer"></div>
-            <button onClick={() => navigate('/add-roles')}><FontAwesomeIcon icon={faPlus}/> Add Roles</button>
+            <button onClick={() => navigate('/manage-roles')}><FontAwesomeIcon icon={faUsersCog} style={{ fontSize: '30px' }}/> Manage roles</button>
             <div className="spacer"></div>
-            <button onClick={() => navigate('/manage-roles')}><FontAwesomeIcon icon={faUsersCog}/> Manage Roles</button>
-            <div className="spacer"></div>
-            <button onClick={() => navigate('/manage-users')}><FontAwesomeIcon icon={faUser}/> Manage Users</button>
-            <div className="spacer"></div>
-            <button onClick={() => navigate('/manage-work-hours')}><FontAwesomeIcon icon={faClock}/> Manage Work Hours
+            <button onClick={() => navigate('/manage-users')}><FontAwesomeIcon icon={faUser} style={{ fontSize: '30px' }}/> Manage users</button>
+            <div className="spacer1"></div>
+            <button onClick={() => navigate('/manage-work-hours')}><FontAwesomeIcon icon={faClock} style={{ fontSize: '30px' }}/> Manage work hours
             </button>
             <div className="spacer"></div>
-            <button onClick={() => navigate('/manage-work-places')}><FontAwesomeIcon icon={faBuilding}/> Manage Work
-                Places
+            <div className="spacer"></div>
+            <button onClick={() => navigate('/manage-work-places')}><FontAwesomeIcon icon={faBuilding} style={{ fontSize: '30px' }}/> Manage workplaces
             </button>
         </div>
 

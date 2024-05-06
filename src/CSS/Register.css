@@ -1,0 +1,100 @@
+  form input[type="number"], form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block; 
+    margin-bottom: 10px; 
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.page-wrapper {
+  background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
+}
+
+.account-text {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    text-align: center; 
+    flex-direction: column;
+  }
+  .account-text p {
+    margin-right: 0px;
+  }
+.login-button {
+    border: none; 
+    color: #2196f3;  
+    cursor: pointer;  
+    background-color: transparent;
+    padding: 0px;
+}
+.background-container {
+  background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
+  min-height: 100vh;
+}
+.login-button:hover {
+    background-color: transparent;
+      border: none;
+}
+.login-button:active, 
+.login-button:focus {
+    outline: none; /* Remove outline when active or focused */
+}
+.register-container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 50vh; 
+    height: 70vh;
+    margin: 0 auto; 
+    padding: 10px;
+    background-color: transparent; 
+    
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    transform: translate(50%, -50%);
+}
+
+.otsikko2 {
+  position: absolute;
+  top: 265px; 
+  left:22.2%;
+  transform: translateX(-50%);
+  font-size: 27px;
+  color: white;
+  text-align: center; 
+  
+}
+.otsikko5 {
+  position: absolute;
+  top: 365px; 
+  left:22.2%;
+  transform: translateX(-50%);
+  font-size: 23px;
+  color: white;  
+  text-align: center; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Baloo 2', sans-serif;
+}
+.otsikko6 {
+  position: absolute;
+  top: 465px; 
+  left:22.6%;
+  transform: translateX(-50%);
+  font-size: 17px;
+  color: #2196f3;  
+  text-align: center; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Baloo 2', sans-serif;
+}
+.kuva {
+  position: absolute;
+  top: 280px; 
+  left:25%;
+  transform: translateX(-50%);
+  max-width: 60%;
+  max-height: 60%;
+}

@@ -1,0 +1,40 @@
+
+.container {
+    max-width: 1000px; 
+    background-color: #f2f2f2; 
+    padding: 2px; 
+    border-radius: 8px; 
+  }
+  
+  table {
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  
+  th, td {
+    padding: 20px 60px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  th {
+    background-color: #e0e0e0; 
+  }
+  
+  h1 {
+    margin-bottom: 20px; 
+    text-align: center; 
+  }
+  .page-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .settings-icon {
+    color: rgb(49, 49, 49); 
+  }
+  
+  .settings-icon:hover {
+    color: gray; 
+  }

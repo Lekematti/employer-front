@@ -1,15 +1,54 @@
+.app-container {
+    display: flex;
+    height: 100%; /* Full viewport height */
+  }
+  
+  .content-area {
+    flex-grow: 1; /* Takes up the remaining space */
+    overflow-y: auto; /* Adds scroll to the main content area if needed */
+    padding-top: 60px;
+  }
 .sidebar {
     width: 200px;
     height: 100vh;
-    background-color: #f0f0f0;
-    flex: 0 0 200px; /* This sets the sidebar's width to 200px and prevents it from growing or shrinking */
-
+   background-color: #283C3F;
+  position: fixed;
+  flex-direction: column; /* Set the direction to column */
+  align-items: center; /* Center align items horizontally */
+  justify-content: flex-start; /* Start align items vertically */
 }
 .spacer {
     height: 20px;
 }
+.spacer1 {
+  height: 30px;
+}
 .sidebar button {
-    width: 150px;  /* adjust as needed */
-    height: 60px;  /* adjust as needed */
-    margin: 5px 10px 5px 10px;  /* adjust as needed */
+  width: 150px; /* adjust as needed */
+  height: 60px; /* adjust as needed */
+  margin: 5px 10px 5px 10px; /* adjust as needed */
+  background-color: transparent;
+  color: white;
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Set the direction to column */
+  align-items: center; /* Center align items horizontally */
+  justify-content: center; /* Center align items vertically */
+  gap: 5px; /* Gap between icon and text */
+  cursor: pointer;
+}
+.wpt-button {
+  font-family: Audiowide;
+  font-size: 26px;
+  position: relative;
+}
+
+.wpt-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;  /* Adjust this value to position the line where you want */
+  transform: translateX(-50%);  /* Center the line horizontally */
+  width: 120px;  /* Adjust this value to control the length of the line */
+  height: 1px;
+  background-color: rgb(51, 51, 51);
 }
