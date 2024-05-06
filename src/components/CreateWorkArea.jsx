@@ -37,8 +37,7 @@ function CreateWorkArea() {
         }
     }, [marker]);
 
-    /*console.log("Updated Latitude:", latitude);
-    console.log("Updated Longitude:", longitude);*/
+    
     console.log("Updated Marker:", marker);
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -67,7 +66,7 @@ function CreateWorkArea() {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
                 <LocationMarker />
             </MapContainer>
-            <form onSubmit={handleSubmit}>
+            <form className="map-form" onSubmit={handleSubmit}>
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required/>
                 <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" required/>
                 <input type="hidden" defaultValue={latitude} required/>

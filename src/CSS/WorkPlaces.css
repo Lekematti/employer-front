@@ -1,26 +1,33 @@
-.work-places {
+   .work-places {
     text-align: center;
     display: flex;
     flex-direction: row;
     margin: 0;
     padding: 0;
     height: 100%;
-}
-.sidebar {
-margin-right: 10px;
-}
-body {
+}  
+/* body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-}
-.map-container {
+}  */
+/*  .map-container {
     flex-grow: 1;
-    height: 100vh; /* Adjust as needed */
+    height: 100vh; 
+    align-items: center;
+    justify-content: center;   
 }
-.leaflet-container {
+  */
+/*  .leaflet-container {
     margin-top: 10px;
     height: 40vh;
     width: 50vw;
-}
-
+    transform: translate(50%, 0%);
+    
+} 
+ */
+.map-form {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;} 

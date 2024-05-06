@@ -1,9 +1,10 @@
 .work-area-container {
     display: flex;
     flex-direction: row;
-    height: 100vh; /* Ensuring the container takes full viewport height */
-    width: 100vw; /* Ensuring the container takes full viewport width */
-}
+    height: 100vh; /* Ensures the container takes full viewport height */
+    margin-left: 200px; /* Adjust this to the width of your sidebar */
+    width: calc(100% - 200px); /* Adjust the total width minus the sidebar */
+  }
 /* Ensuring the map takes all the remaining space */
 .map-container {
     flex-grow: 1;

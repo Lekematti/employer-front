@@ -16,13 +16,17 @@ function Sidebar() {
             <div className="spacer"></div>
             <button onClick={() => navigate('/manage-roles')}><FontAwesomeIcon icon={faUsersCog} style={{ fontSize: '30px' }}/> Manage roles</button>
             <div className="spacer"></div>
-            <button onClick={() => navigate('/manage-users')}><FontAwesomeIcon icon={faUser} style={{ fontSize: '30px' }}/> Manage users</button>
+            <button onClick={() => navigate('/manageusers')}><FontAwesomeIcon icon={faUser} style={{ fontSize: '30px' }}/> Manage users</button>
             <div className="spacer1"></div>
             <button onClick={() => navigate('/manage-work-hours')}><FontAwesomeIcon icon={faClock} style={{ fontSize: '30px' }}/> Manage work hours
             </button>
             <div className="spacer"></div>
             <div className="spacer"></div>
-            <button onClick={() => navigate('/manage-work-places')}><FontAwesomeIcon icon={faBuilding} style={{ fontSize: '30px' }}/> Manage workplaces
+            <button onClick={() => navigate('/manage-work-places')}><FontAwesomeIcon icon={faBuilding} style={{ fontSize: '30px' }}/> Create workplace
+            </button>
+            <div className="spacer"></div>
+            <div className="spacer"></div>
+            <button onClick={() => navigate('/edit')}><FontAwesomeIcon icon={faBuilding} style={{ fontSize: '30px' }}/> Manage workplaces
             </button>
         </div>
 

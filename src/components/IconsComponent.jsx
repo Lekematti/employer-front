@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBell } from "@fortawesome/free-solid-svg-icons";
 import { useNotificationContext } from '../Context/NotificationContext'; // Adjust path as needed
 import NotificationDropdown from "./NotificationDropdown";
+import { useNavigate } from 'react-router-dom';
 
 const IconsComponent = () => {
   const { notifications, notificationCount, fetchNotifications } = useNotificationContext();
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -24,7 +26,7 @@ const IconsComponent = () => {
 
   const toggleDropdown = () => setShowDropdown(!showDropdown);
   const handleUserIconClick = () => {
-    console.log("User icon clicked");
+    navigate('/profile');
   };
 
   return (

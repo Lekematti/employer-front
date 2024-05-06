@@ -6,10 +6,7 @@ import WorkArea from "../components/workArea.jsx";
 function WorkPlaces() {
   return (
       <div className="work-places">
-          <div className="sidebar">
-            <Sidebar />
-          </div>
-
+          
           <CreateWorkArea />
         {/*<WorkArea />*/}
       </div>
