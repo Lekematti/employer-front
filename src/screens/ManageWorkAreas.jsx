@@ -25,13 +25,14 @@ function CenterView({ center }) {
 function WorkAreaMap() {
   const [workAreas, setWorkAreas] = useState([]);
   const [mapCenter, setMapCenter] = useState([51.505, -0.09]);
+  const [selectedUser, setSelectedUser] = useState(null);
   const { getWorkAreasByCompanyId } = workAreaHooks();
   const { getUsersAndLogsByWorkAreaId } = userHooks();
   const [userDetails, setUserDetails] = useState({});
 
   useEffect(() => {
     const fetchWorkAreas = async () => {
-      const data = await getWorkAreasByCompanyId(1); // Ensure you replace '1' with dynamic company ID if needed
+      const data = await getWorkAreasByCompanyId(1); // Replace with user.company id from mainContext
       setWorkAreas(data);
     };
 
@@ -158,6 +159,7 @@ function WorkAreaMap() {
         </ul>
       </div>
     </div>
+    
   );
 }
 
