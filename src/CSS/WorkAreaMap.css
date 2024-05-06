@@ -1,0 +1,201 @@
+.work-area-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Ensuring the container takes full viewport height */
+    width: 100vw; /* Ensuring the container takes full viewport width */
+}
+/* Ensuring the map takes all the remaining space */
+.map-container {
+    flex-grow: 1;
+    height: 100vh; /* Full viewport height */
+}
+
+.work-area-list {
+    width: 800px; /* Fixed width for the list */
+    background: white;
+    overflow-y: auto; /* Allowing scroll on y-axis */
+    padding: 10px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Optional: Adds shadow for depth */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+}
+.work-area-list ul {
+    list-style-type: none;  /* No bullets */
+    padding: 0;  /* Remove padding */
+    margin: 0;  /* Remove margin */
+}
+
+.work-area-list li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;  /* Separator between items */
+    transition: background-color 0.3s;  /* Smooth transition for hover effect */
+}
+
+.work-area-list li:hover {
+    background-color: #f0f0f0;  /* Highlight on hover */
+}
+
+.work-area-list li .name {
+    font-size: 16px;  /* Larger font size for the name */
+    font-weight: bold;  /* Make the name bold */
+}
+
+.work-area-list li .description {
+    font-size: 14px;  /* Slightly smaller font size for the description */
+    color: #666;  /* Dim the description a bit for contrast */
+}
+.work-area-list-header {
+    padding: 15px 10px;
+    font-size: 18px; /* Larger font for the header */
+    text-align: center; /* Center the header text */
+    font-weight: bold; /* Make the header text bold */
+}
+.users-info {
+    font-size: 14px; /* Set font size for user info */
+    color: #333; /* Set a suitable text color */
+    margin-top: 5px; /* Space above the user info text */
+}
+.user-details {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.user-details li {
+    margin-top: 10px;
+    align-items: center;
+    display: flex;
+    margin-bottom: 20px; /* Adds more space between list items */
+}
+
+.user-details li img {
+    margin-right: 10px;
+    width: 50px; /* Ensures uniform size */
+    height: 50px; /* Ensures uniform size */
+    border-radius: 50%; /* Makes the image round */
+}
+
+.user-details li span {
+    margin-right: 15px; /* Adds space between the name and the time box */
+}
+
+.user-name {
+    font-weight: bold; /* Makes the username bold */
+}
+
+.time-box {
+    background-color: #283C3F; /* Dark teal background */
+    color: white; /* White text color */
+    padding: 5px 10px; /* Padding inside the box */
+    border-radius: 10px; /* Rounded corners for the box */
+    font-weight: bold; /* Bold text for emphasis */
+}
+.activity-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Circular indicator */
+    display: inline-block;
+    margin-right: 5px; /* Space before the name or comment */
+}
+
+.activity-indicator.active {
+    background-color: green; /* Active status */
+}
+
+.activity-indicator.inactive {
+    background-color: grey; /* Inactive status */
+}
+
+.work-area-name, .last-comment {
+    font-style: italic; /* Styling for the work area name or last comment */
+    margin-left: 10px; /* Space from the indicator */
+    color: #555; /* Slightly dim color for less emphasis */
+}
+
+/* Ensure that the list items for user details are spaced adequately */
+.user-details li {
+    padding: 10px 0; /* Adds vertical padding for better separation */
+    align-items: center;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+}
+
+/* Additional styling to separate elements within each user detail */
+.user-details li > span, .user-details li > div {
+    margin-right: 10px; /* Consistent spacing between elements */
+}
+.user-profile-sidebar {
+    width: 300px;
+    background: white;
+    padding: 20px;
+    box-shadow: -5px 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .user-profile-sidebar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .user-profile-sidebar h3 {
+    margin-top: 10px;
+  }
+  
+  .timeline {
+    margin-top: 20px;
+  }
+  
+  .event .dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .event .timestamp {
+    margin-right: 10px;
+  }
+  
+  .event .workarea {
+    font-weight: bold;
+  }
+  .user-modal {
+    position: absolute;
+    left: 20px; /* Adjust as needed */
+    top: 20px; /* Adjust as needed */
+    width: 300px; /* Adjust as needed */
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  .modal-profile-pic {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .user-modal h3 {
+    text-align: center;
+  }
+  
+  .user-modal button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }

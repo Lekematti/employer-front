@@ -75,11 +75,40 @@ const worklogHooks = () => {
     }
   };
 
+  // get todays worklog by userId for workAreaId
+  const getTodaysWorkLogByUserIdAndWorkAreaId = async (userId, workAreaId) => {
+    try {
+        const options = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + token,
+            },
+        };
+        const res = await axios.get(
+            API_URL + "worklogs/" + userId + "/" + workAreaId + "/today",
+            options
+        );
+        return res.data;  // Assuming that if the data is found, it will be returned correctly
+    } catch (err) {
+        if (err.response && err.response.status === 404) {
+            // Handle 404 error specifically
+            console.log('No work log found for today for user:', userId);
+            return null; // Return null or a default object to indicate no work log found
+        } else {
+            // Log and throw other errors
+            console.error('Error fetching today\'s work log:', err);
+            throw err; // Rethrow the error for further handling upstream if necessary
+        }
+    }
+};
+
+
   return {
     getWorkLogsByCompanyId,
     getWorkLogs,
     getWorkLogByUserId,
     getWorkLogByUserIdAndWorkAreaId,
+    getTodaysWorkLogByUserIdAndWorkAreaId,
   };
 };
 
