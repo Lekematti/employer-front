@@ -1,21 +1,25 @@
-import React from 'react';
-import '../CSS/ManageUsers.css'; 
+import React, { useState, useEffect, useContext } from 'react';
+import '../CSS/ManageUsers.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
+import userHooks from '../hooks/userHooks';
+import { MainContext } from '../Context/MainContext';
 
 const ManageUsers = () => {
-    const data = [
-        { id: 1, name: 'John Doe', age: 30, email: 'john@example.com' },
-        { id: 2, name: 'Jane Smith', age: 25, email: 'jane@example.com' },
-        { id: 3, name: 'Bob Johnson', age: 40, email: 'bob@example.com' },
-        { id: 4, name: 'Jane Smith', age: 25, email: 'jane@example.com' },
-        { id: 5, name: 'Jane Smith', age: 25, email: 'jane@example.com' },
-        { id: 6, name: 'Jane Smith', age: 25, email: 'jane@example.com' },
-        { id: 7, name: 'Jane Smith', age: 25, email: 'jane@example.com' }
-      ];
+    const { user } = useContext(MainContext); // Access user context
+    const { getAllUsersByCompanyId } = userHooks();
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        // Assume user.account.companyId holds the ID of the company
+        if (user.account && user.account.id) {
+            getAllUsersByCompanyId(user.account.id).then(setUsers);
+        }
+    }, []);
+
     
-      const handleSettingsClick = (userId) => {
-    
+
+    const handleSettingsClick = (userId) => {
         console.log("Settings clicked for user with ID:", userId);
     };
 
@@ -26,24 +30,26 @@ const ManageUsers = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Photo</th>
                             <th>Name</th>
-                            <th>Age</th>
+                            <th>Phone</th>
                             <th>Email</th>
-                            <th></th>
+                            <th>Settings</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map(item => (
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
-                                <td>{item.name}</td>
-                                <td>{item.age}</td>
-                                <td>{item.email}</td>
+                        {users.map(user => (
+                            <tr key={user.id}>
                                 <td>
-                                    <a href="#" onClick={() => handleSettingsClick(item.id)}>
+                                    <img src={`http://localhost:3000/uploads/${user.picture || 'default_avatar.png'}`} alt={user.name} style={{ width: 50, height: 50, borderRadius: '50%' }}/>
+                                </td>
+                                <td>{user.name}</td>
+                                <td>{user.phone}</td>
+                                <td>{user.email}</td>
+                                <td>
+                                    <button onClick={() => handleSettingsClick(user.id)} style={{ border: 'none', background: 'none' }}>
                                         <FontAwesomeIcon icon={faCog} className="settings-icon" />
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
                         ))}
@@ -53,4 +59,5 @@ const ManageUsers = () => {
         </div>
     );
 }
+
 export default ManageUsers;
