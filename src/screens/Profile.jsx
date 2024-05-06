@@ -1,85 +1,46 @@
-import Sidebar from '../components/Sidebar';
-import '../CSS/Home.css';
-import { useState, useEffect } from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faUser} from "@fortawesome/free-solid-svg-icons";
-import IconsComponent from "../components/IconsComponent.jsx";
 
-function Home() {
-    const [user, setUser] = useState(null);
+import React from 'react';
+import Sidebar from '../components/Sidebar'; // Assuming the path is correct
+import IconsComponent from '../components/IconsComponent.jsx'; // Assuming the path is correct
+import '../CSS/Profile.css'; // Assuming the path is correct
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faEdit } from "@fortawesome/free-solid-svg-icons"; // Assuming you want to use the edit icon
+import { useNavigate } from 'react-router-dom';
 
-    useEffect(() => {
-        const storedUser = sessionStorage.getItem('user');
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
-    }, []);
+function Profile() {
+  const user = {
+    name: 'Metropolia Karamalmi',
+    email: 'karamalmi@metropolia.fi',
+    address: 'Karaportti 2',
+    pnumber: '+35858458485',
+    busid: 'Y-2203023',
+    avatar: 'https://www.metropolia.fi/sites/default/files/images/Kampukset/karamalmin-kampus.jpg', // Placeholder image
+  };
 
-    return (
-        <div className="home" >
-            <Sidebar />
-            <IconsComponent />
-            <div className="main-content">
-                <div className="header-container">
-                    <h1>Welcome to the home screen!</h1>
-                    {user && (
-                        <div className="user-info">
-                            <p>Welcome, {user.name}!</p>
-                            <p>Business ID: {user.businessId}</p>
-                            <p>Address: {user.address}</p>
-                            <p>Phone: {user.phone}</p>
-                        </div>
-                    )}
-                </div>
-                <div className="large-box">
-                    <div className="inner-box-container">
-                        <div className="box">
-                        <a href="/path-to-workplace-page">
-                            <img src="/src/assets/building.jpg" alt="Building" />
-                            <div className="box-header">Workplace 1</div>
-                            <div className="box-text"><FontAwesomeIcon icon={faUser}style={{ color: 'green', fontSize: '10px' }}/> Users 5/5</div>
-                            </a>
-                        </div>
-                        <div className="box">
-                        <a href="/path-to-workplace-page">
-                            <img src="/src/assets/building.jpg" alt="Building" />
-                            <div className="box-header">Workplace 2</div>
-                            <div className="box-text"><FontAwesomeIcon icon={faUser} style={{ color: 'green', fontSize: '10px' }}/> Users 11/13</div>
-                            </a>
-                        </div>
-                        <div className="box">
-                        <a href="/path-to-workplace-page">
-                            <img src="/src/assets/building.jpg" alt="Building" />
-                            <div className="box-header">Workplace 3</div>
-                            <div className="box-text"><FontAwesomeIcon icon={faUser} style={{ color: 'green', fontSize: '10px' }}/> Users 10/24</div>
-                            </a>
-                        </div>
-                        <div className="box">
-                        <a href="/path-to-workplace-page">
-                            <img src="/src/assets/building.jpg" alt="Building" />
-                            <div className="box-header">Workplace 4</div>
-                            <div className="box-text"><FontAwesomeIcon icon={faUser} style={{ color: 'green', fontSize: '10px' }}/> Users 12/13</div>
-                            </a>
-                        </div>
-                        <div className="box">
-                        <a href="/path-to-workplace-page">
-                            <img src="/src/assets/building.jpg" alt="Building" />
-                            <div className="box-header">Workplace 5</div>
-                            <div className="box-text"><FontAwesomeIcon icon={faUser} style={{ color: 'green', fontSize: '10px' }}/> Users 2/24</div>
-                            </a>
-                        </div>
-                        <div className="box">
-                        <a href="/path-to-workplace-page">
-                            <img src="/src/assets/building.jpg" alt="Building" />
-                            <div className="box-header">Workplace 6</div>
-                            <div className="box-text"><FontAwesomeIcon icon={faUser} style={{ color: 'gray', fontSize: '10px' }}/> Users 0/6</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  const navigate = useNavigate();
+
+  const handleEditProfile = () => {
+    navigate('/editprofile');
+  };
+
+  return (
+    <div className="page-wrapper1">
+      <div className="profile-container">
+      <h2 className="profile-title">Profile</h2>
+        <img src={user.avatar} alt="Profile avatar" className="profile-avatar" />
+        <div className="profile-info">
+          <h2>{user.name}</h2>
+          <p><strong>Email: </strong>{user.email}</p>
+          <p><strong>Address: </strong>{user.address}</p>
+          <p><strong>Phone number: </strong>{user.pnumber}</p>
+          <p><strong>Business ID: </strong>{user.busid}</p>
+          <button className="edit-button" onClick={handleEditProfile}>
+            <FontAwesomeIcon icon={faEdit} /> Edit Profile
+          </button>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
-export default Home;
+export default Profile;

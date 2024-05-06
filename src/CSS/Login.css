@@ -30,10 +30,6 @@
   form button:hover {
       background-color: #45a049;
   }
-  .page-wrapper {
-    background: linear-gradient(to right, #1B2324 50%, rgb(250, 240, 240) 50%);
-  }
-  
     .account-text {
       display: flex;
       align-items: center;
@@ -78,6 +74,7 @@
     width: 40px;
     height: 40px;
     margin-right: 5px; 
+    margin-top: -15px;
   }
   .otsikko {
     position: absolute;

@@ -45,8 +45,8 @@ const handlePictureChange = (e) => {
 };
 
     return (
-        <div className="page-wrapper">
         <>
+         <div className="background-container">
         <div className="otsikko">
         <img src="../src/assets/logo.png" className="logo"></img>
           <h1>WORKPLACE TRACKER</h1>
@@ -91,8 +91,8 @@ const handlePictureChange = (e) => {
                 </div>
         </form>
         </div>
-        </>
         </div>
+        </>
     );
 }
 
